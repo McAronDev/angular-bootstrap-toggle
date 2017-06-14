@@ -146,7 +146,7 @@
           restrict: 'E',
           transclude: true,
           template:
-          '<div class="toggle btn" ng-class="wrapperClass" ng-style="wrapperStyle" ng-click="onSwitch()">' +
+          '<div class="toggle btn" ng-class="[wrapperClass, {disabled: ngDisabled}]" ng-style="wrapperStyle" ng-click="onSwitch()">' +
           '<div class="toggle-group">' +
           '<label class="btn" ng-class="onClass"></label>' +
           '<label class="btn active" ng-class="offClass"></label>' +
@@ -154,7 +154,8 @@
           '</div>' +
           '</div>',
           scope: {
-            ngModel: '='
+            ngModel: '=',
+            ngDisabled: '='
           },
           require: ['toggle', 'ngModel'],
           controller: 'ToggleController',
